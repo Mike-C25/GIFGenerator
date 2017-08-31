@@ -1,0 +1,113 @@
+$yel: #EEC25E;
+
+$sal: #F79D84;
+
+$gr: #59CD90;
+
+$bl: #39A0ED;
+$dbl: darken($bl, 10%);
+
+$r: #EE6352;
+
+body {
+    font-family: "Arial", "sans-serif";
+}
+
+#topic-buttons {
+    position: relative;
+    .button-topic {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid $bl;
+        border-radius: 2px;
+        background: $bl;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.278);
+        transition: all .2s ease-in-out;
+        &:hover {
+            background: $dbl;
+            transform: translate(1px, -1px);
+            box-shadow: none;
+        }
+        &:active {
+            background: #555e6d;
+        }
+    }
+}
+
+#gif-holder {
+    width: 100%;
+    margin: 0px auto;
+    .gif-img {
+        float: left;
+        display: inline-block;
+        max-width: 400px;
+        padding: 20px;
+        img {}
+    }
+}
+
+
+@keyframes slideBounce {
+    0% {
+        transform: translateX(200px);
+    }
+    100% {
+        transform: translateX(20px);
+    }
+}
+
+#topic-form {
+    position: fixed;
+    right: 2%;
+    top: 50%;
+    background: #EE6352;
+    height: 150px;
+    width: 200px;
+    transform: translateX(200px);
+    transition: .7s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+    &.trigger {
+        transform: translateX(20px);
+    }
+
+    #form-header {
+        color: white;
+        font-size: 20px;
+        margin: 0px auto;
+        display: flex;
+        width: auto;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+    #form-text {
+        display: flex;
+        vertical-align: middle;
+        justify-content: center;
+        width: 75%;
+        margin: 0px auto;
+        margin-top: 20px;
+        height: 25px;
+        font-size: 18px;
+    }
+    #submit-topic {
+        position: absolute;
+        color: $r;
+        font-weight: bold;
+        height: 25px;
+        width: 50px;
+        background: white;
+        border: 1px solid white;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        margin: 0px auto;
+    }
+}
