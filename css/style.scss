@@ -69,7 +69,17 @@ body {
     transform: translateX(10px);
     transition: .7s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     &:before {
+        position: absolute;
+        display: block;
         content: "OPEN";
+        transform: rotate(-90deg);
+        height: 35px;
+        width: 146px;
+        margin: 0px;
+        left: -53px;
+        top: 58px;
+        text-align: center;
+        color: white;
     }
     &.trigger {
         #topic-form {
@@ -82,14 +92,14 @@ body {
     }
     #toggle-form {
         font-size: 30px;
-        height: 35px;
-        width: 34px;
+        height: 150px;
+        width: 21px;
         top: 0px;
-        left: 0px;
+        left: -5px;
         color: white;
         position: absolute;
-        margin-top: 5px;
-        margin-left: 10px;
+        margin-top: 0;
+        margin-left: 0;
         transform: scale(1.4);
         transform: translateX(5px);
         transition: .8s ease-in-out;
