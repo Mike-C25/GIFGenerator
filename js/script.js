@@ -19,7 +19,7 @@ window.addEventListener('load', function() {
 
     $(".button-topic").on('click', function() {
         var tempTopic = $(this).data("value");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + tempTopic + "&api_key=0abc950e61194a8792b03c90afa6fa7d&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tempTopic + "&api_key=0abc950e61194a8792b03c90afa6fa7d&limit=10";
 
         //Clear preexisting gifs
         gifHolder.empty();
@@ -66,8 +66,9 @@ window.addEventListener('load', function() {
     });
 
     //Toggle Add
-    $(document).on('click','#topic-form',function(){
-    	$(this).toggleClass("trigger");
+    $(document).on('click','#toggle-form',function(){
+    	$(this).toggleClass("spin");
+    	$("#topic-form").toggleClass("trigger");
     });
 
 
