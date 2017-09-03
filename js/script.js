@@ -1,23 +1,24 @@
 window.addEventListener('load', function() {
-    var topics = ["hamburgers", "whales", "8-bit", "animation", "memes", "cake", "saxaphone", "music", "falcon", "spongebob", "the office", "old spice", "superbowl", "rocky"]
+    var topics = ["hamburgers", "whales", "8-bit", "animation", "memes", "cake", "saxaphone", "music", "falcon", "spongebob", "the office", "old spice", "superbowl", "rocky", "asdf"]
 
     //Create buttons for preset topics
 
     var btnContainer = $("#topic-buttons");
     var gifHolder = $("#gif-holder");
 
-    for (topic in topics) {
-        var btnTopic = $("<div class='button-topic'>");
-        btnTopic.text(topics[topic]);
-        btnTopic.attr("data-value", topics[topic]);
+    // for (topic in topics) {
+    //     var btnTopic = $("<div class='button-topic'>");
+    //     btnTopic.text(topics[topic]);
+    //     btnTopic.attr("data-value", topics[topic]);
 
-        btnContainer.append(btnTopic);
-    }
+    //     btnContainer.append(btnTopic);
+    // }
+    addTopics();
 
 
     //Make ajax call on topic button click
 
-    $(".button-topic").on('click', function() {
+    $(document).on('click', '.button-topic', function() {
         var tempTopic = $(this).data("value");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tempTopic + "&api_key=0abc950e61194a8792b03c90afa6fa7d&limit=10";
 
@@ -66,10 +67,48 @@ window.addEventListener('load', function() {
     });
 
     //Toggle Add
-    $(document).on('click','#toggle-form',function(){
-    	$(this).toggleClass("spin");
-    	$("#topic-form").toggleClass("trigger");
+    $(document).on('click', '#toggle-form', function() {
+        $(this).toggleClass("spin");
+        $("#topic-form").toggleClass("trigger");
     });
+
+    $("#submit-topic").on('click', function(e) {
+        e.preventDefault();
+        var tempInput = $("#form-text").val();
+        if (!tempInput) {
+            console.log("Please Add a topic!");
+        } else if (topics.indexOf(tempInput) !== -1) {
+            console.log("Topic already exists");
+        } else {
+            addTopics(tempInput);
+        }
+    });
+
+    function addTopics(a) {
+        if (a) {
+            topics.push(a);
+
+            btnContainer.empty();
+            for (topic in topics) {
+                var btnTopic = $("<div class='button-topic'>");
+                btnTopic.text(topics[topic]);
+                btnTopic.attr("data-value", topics[topic]);
+
+                btnContainer.append(btnTopic);
+            }
+        } else {
+            btnContainer.empty();
+            for (topic in topics) {
+                var btnTopic = $("<div class='button-topic'>");
+                btnTopic.text(topics[topic]);
+                btnTopic.attr("data-value", topics[topic]);
+
+                btnContainer.append(btnTopic);
+            }
+
+
+        }
+    }
 
 
 }, false)
