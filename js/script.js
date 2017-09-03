@@ -19,8 +19,9 @@ window.addEventListener('load', function() {
     //Make ajax call on topic button click
 
     $(document).on('click', '.button-topic', function() {
+    	var randomNum = Math.floor((Math.random() * 20) + 0)
         var tempTopic = $(this).data("value");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tempTopic + "&api_key=0abc950e61194a8792b03c90afa6fa7d&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tempTopic + "&offset=" + randomNum + "&api_key=0abc950e61194a8792b03c90afa6fa7d&limit=10";
 
         //Clear preexisting gifs
         gifHolder.empty();
@@ -76,9 +77,9 @@ window.addEventListener('load', function() {
         e.preventDefault();
         var tempInput = $("#form-text").val();
         if (!tempInput) {
-            console.log("Please Add a topic!");
+            console.log("Please enter a valid topic!");
         } else if (topics.indexOf(tempInput) !== -1) {
-            console.log("Topic already exists");
+			console.log("Topic already exists");
         } else {
             addTopics(tempInput);
         }

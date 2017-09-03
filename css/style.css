@@ -40,11 +40,13 @@ body {
   position: fixed;
   right: 2%;
   top: 50%;
-  background: #EE6352;
+  background: white;
+  padding-left: 10px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.35);
   height: 150px;
   width: 200px;
   transform: translateX(10px);
-  transition: 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+  transition: 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
   #topic-form.trigger {
     transform: translateX(95%); }
     #topic-form.trigger:before {
@@ -57,29 +59,29 @@ body {
     height: 35px;
     width: 146px;
     margin: 0px;
-    left: -53px;
+    left: -48px;
     top: 58px;
     text-align: center;
-    color: white;
+    color: #EE6352;
     transition: all .2s ease-in-out; }
   #topic-form #toggle-form {
     font-size: 30px;
     height: 150px;
-    width: 21px;
+    width: 27px;
     top: 0px;
-    left: -5px;
-    color: white;
+    left: 0px;
+    color: #EE6352;
     position: absolute;
     margin-top: 0;
     margin-left: 0;
-    transform: scale(1.4);
+    transform: scale(1);
     transform: translateX(5px);
     transition: .8s ease-in-out; }
     #topic-form #toggle-form.spin {
       transform: scale(1);
       transform: translateX(0px); }
   #topic-form #form-header {
-    color: white;
+    color: #EE6352;
     font-size: 20px;
     margin: 0px auto;
     display: flex;
@@ -98,6 +100,7 @@ body {
     font-size: 16px; }
   #topic-form #submit-topic {
     position: absolute;
+    padding: 2px 4px;
     color: #EE6352;
     font-weight: bold;
     height: 25px;
@@ -115,6 +118,7 @@ body {
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
     #topic-form #submit-topic:hover {
-      background: #F79D84;
-      border: 1px solid #F79D84;
-      color: white; }
+      background: #fde5df;
+      color: #EE6352; }
+    #topic-form #submit-topic:active {
+      background: #F79D84; }
